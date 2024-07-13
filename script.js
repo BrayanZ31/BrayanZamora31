@@ -22,25 +22,35 @@ let productos = [];
 function añadirProducto() {
     return new Promise((resolve, reject) => {
         let buscado;
+        let inputValue;
+        let soloLetras;
         let nombre = document.getElementById('nombre').value.toLowerCase();
         let categoria = document.getElementById('categoria').value.toLowerCase();
         let cantidad = parseInt(document.getElementById('cantidad').value);
         let precio = parseFloat(document.getElementById('precio').value);
 
-        buscado = productos.find(producto => producto.nombre === nombre);
-        if(nombre && categoria && cantidad && precio){
-            if(!buscado){
-                let producto = new ProductoSupermercado(nombre, categoria, cantidad, precio);
-                productos.push(producto);
-                resolve(producto);
-                }
-                else{
-                    reject(window.alert("No se pueden repetir los productos"))
-                }
+        soloLetras = /^[a-zA-ZñÑáéíóúÁÉÍÓÚ\s]+$/.test(categoria);
+
+        if(soloLetras){
+            buscado = productos.find(producto => producto.nombre === nombre);
+            if(nombre && categoria && cantidad && precio){
+                if(!buscado){
+                    let producto = new ProductoSupermercado(nombre, categoria, cantidad, precio);
+                    productos.push(producto);
+                    resolve(producto);
+                    }
+                    else{
+                        reject(window.alert("No se pueden repetir los productos"))
+                    }
+            }
+            else{
+                window.alert("Rellene todos los campos correctamente")
+            }
         }
         else{
-            window.alert("Rellene todos los campos correctamente")
+            window.alert("En la categoria solo se puede escribir texto");
         }
+
         
     });
 }
@@ -71,18 +81,24 @@ function actualizarCantidad() {
 function mostrarProductos() {
     return new Promise((resolve, reject) => {
         let categoria = document.getElementById('categoriaMostrar').value.toLowerCase();
-
-        if(categoria){
-            let productosFiltrados = productos.filter(producto => producto.categoria === categoria);
-
-            if (productosFiltrados.length > 0) {
-                resolve(productosFiltrados);
-            } else {
-                reject(window.alert('No se encontraron productos en la categoría: ' + categoria));
+        soloLetras = /^[a-zA-ZñÑáéíóúÁÉÍÓÚ\s]+$/.test(categoria);
+        if(soloLetras){
+            if(categoria){
+                let productosFiltrados = productos.filter(producto => producto.categoria === categoria);
+    
+                if (productosFiltrados.length > 0) {
+                    resolve(productosFiltrados);
+                } else {
+                    reject(window.alert('No se encontraron productos en la categoría: ' + categoria));
+                }
             }
+            else{
+                window.alert("Rellene todos los campos correctamente")
+            }
+           
         }
         else{
-            window.alert("Rellene todos los campos correctamente")
+            window.alert("En la categoria solo se puede escribir texto");  
         }
        
     });
