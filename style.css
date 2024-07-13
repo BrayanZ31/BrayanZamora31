@@ -141,3 +141,177 @@ footer img{
     margin: 0 10px 0 50px;
     width: 50px;
 }
+
+/*responsive*/
+@media (max-width: 1440px){
+    .contenedorTitulo{
+        display: ruby-text;
+    }
+    #contenedorImagen{
+        display:flex;
+        justify-content: center;
+    }
+    .datos{
+        padding-right: 0;
+    }
+    #divisor{
+        display: none;
+    }
+    .container{
+        display: inline;
+        flex-direction: column;
+        align-items: center;
+    }
+    #contenedor{
+        width: 300px;
+        display: flex;
+        flex-direction: column;
+        flex-wrap: nowrap;
+        align-content: center;
+        align-items: center;
+        justify-content: center;
+        padding: 30px;
+    }
+    main{
+        display: block;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        margin: 0 auto;
+    }
+    select{
+        transition:background-color 0.3s ease;
+        border-radius: 50px;
+        box-shadow: 0 0.1rem 0.4rem rgba(0, 0, 0, 0.8);
+        text-align: center;
+        padding: 11px 70px;
+        font-size: 16px;
+    }
+    .contacto{
+        display: none;
+    }
+    #titulo{
+        position: static;
+        font-size: 40px;
+        padding: 30px 0;
+    }
+    .imagen1{
+        display: flex;
+        justify-content: center;
+        margin: 20px 0 50px 37px;
+        width: 70%;
+        height: auto;
+        padding: 0;
+    }
+}
+@media (max-width: 768px){
+    #contenedor{
+        width: 100px;
+        padding: 6px;
+        padding: 0;
+    }
+    .container{
+        display: block;
+    }
+    .datos{
+        padding-right: 14px;
+    }
+    main{
+        display: block;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        margin: 0 auto;
+    }
+    #titulo{
+        position: static;
+        font-size: 40px;
+        padding: 30px 0;
+    }
+    #titulo:hover{
+        font-size: 50px;
+    }
+    #subtitulo{
+        font-size: 50px;
+    }
+    #subtitulo:hover{
+        font-size: 60px;
+    }
+    .imagen1{
+        margin: 40px 69px;
+        width: 70%;
+        height: auto;
+        padding: 0;
+    }
+    .seccion h2{
+        font-size: 30px;
+    }
+    .seccion input{
+        width: 81%;
+        font-size: 18px;
+    }
+    .seccion button{
+        width: 100px;
+        padding: 6px;
+    }
+    select{
+        width: 110%;
+        font-size: 15px;
+    }
+    table{
+        font-size: 14px;
+    }
+    th,td{
+        padding: 3px;
+    }
+    .contacto{
+        display: none;
+    }
+}
+@media (max-width: 480px){
+    #contenedor{
+        display: block;
+        width: 290px;
+        padding:29px;
+    }
+    main{
+        display: block;
+        justify-content: center;
+        align-items: center;
+        margin: 0 auto;
+    }
+    #titulo{
+        position: static;
+        font-size: 20px;
+        padding: 30px 0;
+    }
+    #titulo:hover{
+        font-size: 40px;
+    }
+    #subtitulo{
+        font-size: 40px;
+    }
+    #subtitulo:hover{
+        font-size: 50px;
+    }
+    .seccion h2{
+        font-size: 24px;
+    }
+    .seccion input{
+        width: 68%;
+        font-size: 16px;
+    }
+    .seccion button{
+        width: 80px;
+        padding: 4px;
+    }
+    select{
+        font-size: 12px;
+    }
+    table{
+        font-size: 12px;
+    }
+    .contacto{
+        display: none;
+    }
+}
